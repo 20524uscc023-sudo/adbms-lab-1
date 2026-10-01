@@ -1,0 +1,3 @@
+ALTER TABLE students
+MODIFY name VARCHAR(150);
+
