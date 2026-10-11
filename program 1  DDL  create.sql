@@ -1,6 +1,7 @@
-CREATE TABLE students (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    age INT,
-    email VARCHAR(100)
+CREATE TABLE employee (
+    eid NUMBER,
+    ename VARCHAR2(30),
+    salary NUMBER
 );
+
+DESC employee;
