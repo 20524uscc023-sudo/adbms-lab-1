@@ -1,15 +1,19 @@
-SET @a = 0;
-SET @b = 1;
+SET SERVEROUTPUT ON;
 
-SELECT @a AS fibonacci
-UNION ALL
-SELECT @b
-UNION ALL
-SELECT @c := @a + @b
-FROM (
-    SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4
-    UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8
-) AS n
-CROSS JOIN (SELECT @c := 0) AS init
-WHERE (@a := @b) IS NOT NULL
-  AND (@b := @c) IS NOT NULL;
+DECLARE
+    N NUMBER := 10;
+    A NUMBER := 0;
+    B NUMBER := 1;
+    C NUMBER;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Fibonacci Series:');
+
+    FOR I IN 1..N LOOP
+        DBMS_OUTPUT.PUT_LINE(A);
+
+        C := A + B;
+        A := B;
+        B := C;
+    END LOOP;
+END;
+/
