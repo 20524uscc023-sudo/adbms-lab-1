@@ -1,15 +1,21 @@
-SET @n = 121;
-SET @temp = @n;
-SET @rev = 0;
+DECLARE
+    num NUMBER := 121;
+    temp NUMBER;
+    digit NUMBER;
+    reverse_num NUMBER := 0;
+BEGIN
+    temp := num;
 
-WHILE @temp > 0 DO
-    SET @digit = MOD(@temp, 10);
-    SET @rev = (@rev * 10) + @digit;
-    SET @temp = FLOOR(@temp / 10);
-END WHILE;
+    WHILE temp > 0 LOOP
+        digit := MOD(temp, 10);
+        reverse_num := reverse_num * 10 + digit;
+        temp := TRUNC(temp / 10);
+    END LOOP;
 
-SELECT
-    CASE
-        WHEN @n = @rev THEN 'Palindrome Number'
-        ELSE 'Not Palindrome Number'
-    END AS result;
+    IF num = reverse_num THEN
+        DBMS_OUTPUT.PUT_LINE(num || ' is a Palindrome');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE(num || ' is Not a Palindrome');
+    END IF;
+END;
+/
