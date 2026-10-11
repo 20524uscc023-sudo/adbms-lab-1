@@ -1,13 +1,13 @@
-SET @n = 5;
-SET @fact = 1;
+SET SERVEROUTPUT ON;
 
-SELECT @fact := @fact * num AS factorial
-FROM (
-    SELECT 1 AS num
-    UNION ALL SELECT 2
-    UNION ALL SELECT 3
-    UNION ALL SELECT 4
-    UNION ALL SELECT 5
-) AS numbers
-ORDER BY num DESC
-LIMIT 1;
+DECLARE
+    N NUMBER := 5;
+    FACT NUMBER := 1;
+BEGIN
+    FOR I IN 1..N LOOP
+        FACT := FACT * I;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Factorial of ' || N || ' = ' || FACT);
+END;
+/
