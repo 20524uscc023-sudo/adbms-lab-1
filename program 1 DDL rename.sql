@@ -1,1 +1,1 @@
-RENAME TO student_details;
+RENAME employee TO emp_details;
