@@ -1,37 +1,57 @@
-CREATE TABLE numbers (
-    num1 DECIMAL(10,2),
-    num2 DECIMAL(10,2)
+CREATE TABLE number_data1 (
+    id NUMBER,
+    num NUMBER
 );
 
-INSERT INTO numbers VALUES
-(25.75, 4.20),
-(-15.50, 3.00),
-(10.60, 2.50);
+-- INSERT VALUES
 
--- ABS()
-SELECT num1, ABS(num1) AS absolute_value
-FROM numbers;
+INSERT INTO number_data1 VALUES (1, 25.75);
+INSERT INTO number_data1 VALUES (2, -15.50);
+INSERT INTO number_data1 VALUES (3, 42.35);
+INSERT INTO number_data1 VALUES (4, 10.80);
 
--- CEIL()
-SELECT num1, CEIL(num1) AS ceil_value
-FROM numbers;
+COMMIT;
 
--- FLOOR()
-SELECT num1, FLOOR(num1) AS floor_value
-FROM numbers;
+-- DISPLAY TABLE
 
--- ROUND()
-SELECT num1, ROUND(num1) AS round_value
-FROM numbers;
+SELECT * FROM number_data1;
 
--- POWER()
-SELECT num1, POWER(num1, 2) AS square_value
-FROM numbers;
 
--- SQRT()
-SELECT num1, SQRT(num1) AS square_root
-FROM numbers;
+-- 1. ROUND
+SELECT num, ROUND(num) AS rounded_value
+FROM number_data1;
 
--- MOD()
-SELECT num1, num2, MOD(num1, num2) AS remainder
-FROM numbers;
+
+-- 2. CEIL
+SELECT num, CEIL(num) AS ceil_value
+FROM number_data1;
+
+
+-- 3. FLOOR
+SELECT num, FLOOR(num) AS floor_value
+FROM number_data1;
+
+
+-- 4. ABS
+SELECT num, ABS(num) AS absolute_value
+FROM number_data1;
+
+
+-- 5. MOD
+SELECT num, MOD(num, 5) AS remainder
+FROM number_data1;
+
+
+-- 6. POWER
+SELECT num, POWER(num, 2) AS square_value
+FROM number_data1;
+
+
+-- 7. SQRT
+SELECT num, SQRT(ABS(num)) AS square_root
+FROM number_data1;
+
+
+-- 8. TRUNC
+SELECT num, TRUNC(num) AS truncated_value
+FROM number_data1;
