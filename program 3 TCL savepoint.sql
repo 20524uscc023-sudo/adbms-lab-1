@@ -1,1 +1,4 @@
-SAVEPOINT sp1;
+BEGIN
+    SAVEPOINT s1;
+END;
+/
