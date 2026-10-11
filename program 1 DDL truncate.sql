@@ -1,1 +1,1 @@
-TRUNCATE TABLE students;
+TRUNCATE TABLE emp_details;
