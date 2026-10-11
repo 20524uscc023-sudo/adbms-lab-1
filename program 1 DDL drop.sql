@@ -1,1 +1,1 @@
-DROP TABLE student_details;
+DROP TABLE emp_details;
