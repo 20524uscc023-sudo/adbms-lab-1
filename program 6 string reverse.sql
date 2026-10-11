@@ -1,14 +1,14 @@
-SET @str = 'HELLO';
-SET @rev = '';
+SET SERVEROUTPUT ON;
 
-SELECT @rev := CONCAT(SUBSTRING(@str, n, 1), @rev) AS reversed
-FROM (
-    SELECT 5 AS n
-    UNION ALL SELECT 4
-    UNION ALL SELECT 3
-    UNION ALL SELECT 2
-    UNION ALL SELECT 1
-) AS numbers
-ORDER BY n;
+DECLARE
+    str VARCHAR2(100) := '&str';
+    rev VARCHAR2(100) := '';
+BEGIN
+    FOR i IN REVERSE 1..LENGTH(str) LOOP
+        rev := rev || SUBSTR(str, i, 1);
+    END LOOP;
 
-SELECT @rev AS reversed_string;
+    DBMS_OUTPUT.PUT_LINE('Original String: ' || str);
+    DBMS_OUTPUT.PUT_LINE('Reversed String: ' || rev);
+END;
+/
