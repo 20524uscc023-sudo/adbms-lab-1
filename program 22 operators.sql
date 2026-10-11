@@ -1,44 +1,37 @@
-CREATE TABLE students (
-    id INT,
-    name VARCHAR(50),
-    marks INT,
-    age INT
-);
+DECLARE
+    f   NUMBER := 10;
+    s   NUMBER := 5;
+    uoc NUMBER := 1;
 
-INSERT INTO students VALUES
-(1, 'Arun', 80, 20),
-(2, 'Kumar', 65, 21),
-(3, 'Priya', 90, 19),
-(4, 'Ravi', 50, 22);
+BEGIN
+    IF uoc = 1 THEN
+        DBMS_OUTPUT.PUT_LINE('Add ' || (f + s));
 
--- Arithmetic Operators
-SELECT marks + 10 AS addition FROM students;
-SELECT marks - 10 AS subtraction FROM students;
-SELECT marks * 2 AS multiplication FROM students;
-SELECT marks / 2 AS division FROM students;
-SELECT marks % 2 AS remainder FROM students;
+    ELSIF uoc = 2 THEN
+        DBMS_OUTPUT.PUT_LINE('Sub ' || (f - s));
 
--- Comparison Operators
-SELECT * FROM students WHERE marks = 80;
-SELECT * FROM students WHERE marks > 70;
-SELECT * FROM students WHERE marks < 70;
-SELECT * FROM students WHERE marks >= 80;
-SELECT * FROM students WHERE marks <= 65;
-SELECT * FROM students WHERE marks <> 80;
+    ELSIF uoc = 3 THEN
+        DBMS_OUTPUT.PUT_LINE('Multiply ' || (f * s));
 
--- Logical Operators
-SELECT * FROM students WHERE marks > 60 AND age < 22;
-SELECT * FROM students WHERE marks > 80 OR age = 20;
-SELECT * FROM students WHERE NOT age = 20;
+    ELSIF uoc = 4 THEN
+        DBMS_OUTPUT.PUT_LINE('Division ' || (f / s));
 
--- BETWEEN
-SELECT * FROM students
-WHERE marks BETWEEN 60 AND 90;
+    ELSIF uoc = 5 THEN
+        DBMS_OUTPUT.PUT_LINE('Modulus ' || MOD(f, s));
 
--- IN
-SELECT * FROM students
-WHERE age IN (19, 20, 22);
+    ELSIF uoc = 6 THEN
+        IF f < s THEN
+            DBMS_OUTPUT.PUT_LINE(s || ' is greater than ' || f);
+        ELSE
+            DBMS_OUTPUT.PUT_LINE(f || ' is greater than ' || s);
+        END IF;
 
--- LIKE
-SELECT * FROM students
-WHERE name LIKE 'A%';
+    ELSIF uoc = 7 THEN
+        IF f != 0 AND f = 1 THEN
+            DBMS_OUTPUT.PUT_LINE('True');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('False');
+        END IF;
+    END IF;
+END;
+/
