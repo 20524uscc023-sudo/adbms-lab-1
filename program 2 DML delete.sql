@@ -1,2 +1,2 @@
-DELETE FROM students
-WHERE id = 1;
+DELETE FROM student
+WHERE sid = 103;
