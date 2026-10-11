@@ -1,10 +1,17 @@
-SET @a = 48;
-SET @b = 18;
+DECLARE
+    num1 NUMBER := 58;
+    num2 NUMBER := 22;
+    remainder NUMBER;
+    gcd NUMBER;
+BEGIN
+    WHILE num2 <> 0 LOOP
+        remainder := MOD(num1, num2);
+        num1 := num2;
+        num2 := remainder;
+    END LOOP;
 
-WHILE @b != 0 DO
-    SET @temp = @b;
-    SET @b = MOD(@a, @b);
-    SET @a = @temp;
-END WHILE;
+    gcd := num1;
 
-SELECT @a AS GCD;
+    DBMS_OUTPUT.PUT_LINE('GCD = ' || gcd);
+END;
+/
